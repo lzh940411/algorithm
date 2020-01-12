@@ -1,2 +1,2 @@
 # algorithm
-Common algorithms based on Python implementation
+Common algorithms based on Python implementation.
