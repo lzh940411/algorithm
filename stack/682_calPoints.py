@@ -17,21 +17,17 @@
 
 class Solution:
     def calPoints(self, ops) -> int:
-        final_score, score_stack = 0, []
+        score_stack = []
         for record in ops:
             if record == "C":
-                final_score -= score_stack[-1]
                 score_stack.pop()
             elif record == "D":
-                final_score += 2 * score_stack[-1]
                 score_stack.append(2 * score_stack[-1])
             elif record == "+":
-                final_score += score_stack[-1] + score_stack[-2]
                 score_stack.append(score_stack[-1] + score_stack[-2])
             else:
-                final_score += int(record)
                 score_stack.append(int(record))
-        return final_score
+        return sum(score_stack)
 
 
 if __name__ == "__main__":
