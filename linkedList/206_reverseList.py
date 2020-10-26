@@ -22,7 +22,7 @@
 
 
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
+    def reverseList_iteration(self, head: ListNode) -> ListNode:
         pre = None
         while head:
             tmp = head.next
@@ -30,3 +30,12 @@ class Solution:
             pre = head
             head = tmp
         return pre
+
+
+    def reverseList_recursion(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head
+        new_head = self.reverseList_recursion()
+        head.next.next = head
+        head.next = None
+        return new_head
